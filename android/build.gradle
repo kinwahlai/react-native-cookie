@@ -4,11 +4,8 @@ def safeExtGet(prop, fallback) {
 
 buildscript {
     repositories {
+        google()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
     }
 
     dependencies {
@@ -35,6 +32,7 @@ android {
 
 repositories {
     mavenLocal()
+    google()
     jcenter()
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
@@ -43,6 +41,6 @@ repositories {
 }
 
 dependencies {
-    compile "com.facebook.react:react-native:${safeExtGet('reactNative', '+')}"
-    compile fileTree( dir: "libs", includes: ['*.jar'] )
+    implementation "com.facebook.react:react-native:${safeExtGet('reactNative', '+')}"
+    implementation fileTree( dir: "libs", includes: ['*.jar'] )
 }
